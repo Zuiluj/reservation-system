@@ -19,7 +19,7 @@ public class EventReservationSystem extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/main/resources/fxml/dashboard/dashboard.fxml")); // load the first fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("/main/resources/fxml/rootMenu.fxml")); // load the first fxml file
         
         primaryStage.setTitle("EventsBRandell"); // set title of the application
         primaryStage.setScene(new Scene(root));  // change "root" to scene obj and set it as scene
