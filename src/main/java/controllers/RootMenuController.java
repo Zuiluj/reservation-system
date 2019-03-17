@@ -5,6 +5,7 @@
  */
 package main.java.controllers;
 
+import java.awt.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,22 +17,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
-/**
- * FXML Controller class
- *
- * @author Windows 7
- */
+
+
 public class RootMenuController implements Initializable {
-
+    
+    @FXML
+    AddEventController connectAddEvent = new AddEventController(); // for intantiating the addEventController
+    
     @FXML
     private BorderPane borderpane; // id of the borderpane
 
-    /**
-     * Initializes the controller class.
-     */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("/main/resources/fxml/dashboard.fxml")); // initialize first launch by setting dashboard
@@ -43,13 +44,29 @@ public class RootMenuController implements Initializable {
     }    
     
     @FXML
-    private void addEvent(ActionEvent event) {
+    private void dashboard(ActionEvent event) {
+        changeScene("dashboard");
+    }
+    
+    @FXML
+    private void addEventBday(ActionEvent event) {
+        changeScene("addEvent");
+        connectAddEvent.changeLabel("Birthday");
+    }
+    
+    @FXML
+    private void addEventWedding(ActionEvent event) {
+        changeScene("addEvent");
+    }
+    
+    @FXML
+    private void addEventDebut(ActionEvent event) {
         changeScene("addEvent");
     }
 
     @FXML
     private void calculator(ActionEvent event) {
-        changeScene("calculatorFXML");
+        changeScene("profitCalcFXML");
     }
 
     @FXML
@@ -61,7 +78,7 @@ public class RootMenuController implements Initializable {
     private void history(ActionEvent event) {
         changeScene("historyFXML");
     }
-     
+  
     
     // method for changing scenes
     public void changeScene (String sceneName) {
@@ -74,4 +91,5 @@ public class RootMenuController implements Initializable {
         
         borderpane.setCenter(root);
     }
+    
 }

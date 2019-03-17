@@ -22,12 +22,11 @@ public class EventReservationSystem extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/main/resources/fxml/rootMenu.fxml")); // load the first fxml file
         
         primaryStage.setTitle("EventsBRandell"); // set title of the application
-        primaryStage.setScene(new Scene(root));  // change "root" to scene obj and set it as scene
+        primaryStage.setScene(new Scene(root, 940, 550));  // change "root" to scene obj and set it as scene
         primaryStage.show();    // show
     }
-    /**
-     * @param args the command line arguments
-     */
+
+    
     public static void main(String[] args) {
         launch(args);
     }
