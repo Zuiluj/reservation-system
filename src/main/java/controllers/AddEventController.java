@@ -16,9 +16,8 @@ import javafx.scene.control.Label;
 
 public class AddEventController implements Initializable {
 
-    // establish connection to RootMenuController
-    //
-
+    public static String nameOfEvent; // must be static to change for the whole class not with just instance
+    
     @FXML
     public Label eventName;
     @FXML
@@ -26,17 +25,14 @@ public class AddEventController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        eventName.setText(nameOfEvent);
+
     }    
     
-    public void changeLabel(String nameOfTheEvent) {
-        try {
-        eventName.setText(nameOfTheEvent);
-        }
-        catch (NullPointerException eee) {
-            System.out.println("ERROR!" + eee);
-        }
+    public static void store(String value) { //receives the args from RootMenuController and --
+        AddEventController.nameOfEvent = value;  // assigns it to the label named 'nameOfEvent'
     }
+    
     
     /*
     public void init(RootMenuController mainController) {

@@ -19,15 +19,14 @@ import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
-
+import main.java.controllers.AddEventController;
 
 public class RootMenuController implements Initializable {
     
-    @FXML
     AddEventController connectAddEvent = new AddEventController(); // for intantiating the addEventController
     
     @FXML
-    private BorderPane borderpane; // id of the borderpane
+    public BorderPane borderpane; // id of the borderpane
 
     
     @Override
@@ -50,17 +49,19 @@ public class RootMenuController implements Initializable {
     
     @FXML
     private void addEventBday(ActionEvent event) {
+        AddEventController.store("Birthday"); // store the argument in the AddEventController, and set it as the label
         changeScene("addEvent");
-        connectAddEvent.changeLabel("Birthday");
     }
     
     @FXML
     private void addEventWedding(ActionEvent event) {
+        AddEventController.store("Wedding");
         changeScene("addEvent");
     }
     
     @FXML
     private void addEventDebut(ActionEvent event) {
+        AddEventController.store("Debut");
         changeScene("addEvent");
     }
 
