@@ -49,19 +49,19 @@ public class RootMenuController implements Initializable {
     
     @FXML
     private void addEventBday(ActionEvent event) {
-        AddEventController.store("Birthday"); // store the argument in the AddEventController, and set it as the label
+        AddEventController.changeLabel("Birthday"); // store the argument in the AddEventController, and set it as the label
         changeScene("addEvent");
     }
     
     @FXML
     private void addEventWedding(ActionEvent event) {
-        AddEventController.store("Wedding");
+        AddEventController.changeLabel("Wedding");
         changeScene("addEvent");
     }
     
     @FXML
     private void addEventDebut(ActionEvent event) {
-        AddEventController.store("Debut");
+        AddEventController.changeLabel("Debut");
         changeScene("addEvent");
     }
 

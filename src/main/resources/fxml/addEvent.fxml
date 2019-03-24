@@ -32,7 +32,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <JFXTextField focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0" styleClass="text" stylesheets="@../css/style.css">
+                        <JFXTextField fx:id="name" focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0" styleClass="text" stylesheets="@../css/style.css">
                            <font>
                               <Font name="Forte" size="19.0" />
                            </font>
@@ -49,7 +49,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <JFXTextField focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
+                        <JFXTextField fx:id="contact" focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
                            <font>
                               <Font name="Forte" size="19.0" />
                            </font>
@@ -66,7 +66,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <JFXTextField focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
+                        <JFXTextField fx:id="venue" focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
                            <font>
                               <Font name="Forte" size="19.0" />
                            </font>
@@ -83,7 +83,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <DatePicker prefHeight="25.0" prefWidth="270.0">
+                        <DatePicker fx:id="signUpDate" prefHeight="25.0" prefWidth="270.0">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -107,7 +107,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <JFXTextField focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
+                        <JFXTextField fx:id="packageInclusion" focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
                            <font>
                               <Font name="Forte" size="19.0" />
                            </font>
@@ -124,7 +124,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <JFXTextField focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
+                        <JFXTextField fx:id="price" focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
                            <font>
                               <Font name="Forte" size="19.0" />
                            </font>
@@ -141,7 +141,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <JFXTextField focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
+                        <JFXTextField fx:id="clientBudget" focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
                            <font>
                               <Font name="Forte" size="19.0" />
                            </font>
@@ -158,7 +158,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Label>
-                        <DatePicker prefHeight="25.0" prefWidth="270.0">
+                        <DatePicker fx:id="eventDate" prefHeight="25.0" prefWidth="270.0">
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin>
@@ -171,7 +171,7 @@
       </HBox>
       <HBox prefHeight="211.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <JFXTextArea prefHeight="171.0" prefWidth="598.0" promptText="Add Notes" style="-fx-background-color: inherit;">
+            <JFXTextArea fx:id="notes" prefHeight="171.0" prefWidth="598.0" promptText="Add Notes" style="-fx-background-color: inherit;">
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
@@ -179,7 +179,7 @@
                   <Font name="Forte" size="18.0" />
                </font>
             </JFXTextArea>
-            <JFXButton fx:id="addEvent" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #7a3d58; -fx-background-radius: 20px;" text="Add Event" textFill="WHITE">
+            <JFXButton fx:id="addEvent" onAction="#storeEvent" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #7a3d58; -fx-background-radius: 20px;" text="Add Event" textFill="WHITE">
                <font>
                   <Font name="Forte" size="15.0" />
                </font>
