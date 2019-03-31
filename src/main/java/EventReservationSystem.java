@@ -17,7 +17,7 @@ import main.java.database.*;
  */
 public class EventReservationSystem extends Application {
     
-    DBConnect connectdb = new DBConnect();
+    DBConnect connectdb = new DBConnect(); // make instance of DBConnect to enable use
     
     @Override
     public void start(Stage primaryStage) throws Exception {

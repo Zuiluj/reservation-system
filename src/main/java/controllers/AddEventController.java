@@ -9,17 +9,22 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
-
+import main.java.controllers.RootMenuController.*;
+import main.java.database.DBConnect;
 
 public class AddEventController implements Initializable {
-
+    
+    public DBConnect dbInstance = new DBConnect();
+    
     public static String nameOfEvent; // must be static to change for the whole class not with just instance
     
     @FXML
@@ -55,9 +60,41 @@ public class AddEventController implements Initializable {
         AddEventController.nameOfEvent = value;  // assigns it to the label named 'nameOfEvent'
     }
     
-    
-    private void storeEvent (ActionEvent event) {
-        // stores the event to database
+   
+    public void storeEvent() {
+        
+        
+        dbInstance.getConnection(); // makes sure db is connected
+        PreparedStatement theRealStmt = null; // initalize statement
+       
+        try {
+            String query = "INSERT INTO eventsystem.activeevents(name, contact, venue, signUpDate, package, price, clientBudget, eventDate, notes)"
+                    + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            
+            theRealStmt = dbInstance.conn.prepareStatement(query);
+            
+            theRealStmt.setString(1, name.getText());
+            theRealStmt.setString(2, contact.getText());
+            theRealStmt.setString(3, venue.getText());
+            theRealStmt.setString(4, ((TextField)signUpDate.getEditor()).getText());
+            theRealStmt.setString(5, packageInclusion.getText());
+            theRealStmt.setString(6, price.getText());
+            theRealStmt.setString(7, clientBudget.getText());
+            theRealStmt.setString(8, ((TextField)eventDate.getEditor()).getText());
+            theRealStmt.setString(9, notes.getText());
+            
+            theRealStmt.executeUpdate(); // execute the query with the updated string
+            
+        } catch (SQLException eee) {
+            eee.printStackTrace();
+        }
+        
+        
+        // go back to dashboard after adding event 
+        
+        //
+        
     }
+    
     
 }

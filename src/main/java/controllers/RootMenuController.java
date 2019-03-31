@@ -5,7 +5,6 @@
  */
 package main.java.controllers;
 
-import java.awt.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,13 +16,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 
-import main.java.controllers.AddEventController;
 
 public class RootMenuController implements Initializable {
     
-    AddEventController connectAddEvent = new AddEventController(); // for intantiating the addEventController
     
     @FXML
     public BorderPane borderpane; // id of the borderpane
@@ -86,11 +82,23 @@ public class RootMenuController implements Initializable {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("/main/resources/fxml/" + sceneName + ".fxml"));
+        } catch (IOException eee) {
+            System.out.println(eee);
+        }
+        
+        borderpane.setCenter(root);
+    }
+    
+    public void nigGetBack() {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/main/resources/fxml/dashboard.fxml")); // initialize first launch by setting dashboard
         } catch (IOException ex) {
             Logger.getLogger(RootMenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         borderpane.setCenter(root);
     }
+    
     
 }
