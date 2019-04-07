@@ -63,25 +63,25 @@ public class AddEventController implements Initializable {
    
     public void storeEvent() {
         
-        
-        dbInstance.getConnection(); // makes sure db is connected
+        DBConnect.getConnection(); // makes sure db is connected
         PreparedStatement theRealStmt = null; // initalize statement
        
         try {
-            String query = "INSERT INTO eventsystem.activeevents(name, contact, venue, signUpDate, package, price, clientBudget, eventDate, notes)"
-                    + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO eventsystem.activeevents(eventType, name, contact, venue, signUpDate, packageInclusion, price, clientBudget, eventDate, notes)"
+                    + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
-            theRealStmt = dbInstance.conn.prepareStatement(query);
+            theRealStmt = DBConnect.conn.prepareStatement(query);
             
-            theRealStmt.setString(1, name.getText());
-            theRealStmt.setString(2, contact.getText());
-            theRealStmt.setString(3, venue.getText());
-            theRealStmt.setString(4, ((TextField)signUpDate.getEditor()).getText());
-            theRealStmt.setString(5, packageInclusion.getText());
-            theRealStmt.setString(6, price.getText());
-            theRealStmt.setString(7, clientBudget.getText());
-            theRealStmt.setString(8, ((TextField)eventDate.getEditor()).getText());
-            theRealStmt.setString(9, notes.getText());
+            theRealStmt.setString(1, eventName.getText());
+            theRealStmt.setString(2, name.getText());
+            theRealStmt.setString(3, contact.getText());
+            theRealStmt.setString(4, venue.getText());
+            theRealStmt.setString(5, ((TextField)signUpDate.getEditor()).getText());
+            theRealStmt.setString(6, packageInclusion.getText());
+            theRealStmt.setString(7, price.getText());
+            theRealStmt.setString(8, clientBudget.getText());
+            theRealStmt.setString(9, ((TextField)eventDate.getEditor()).getText());
+            theRealStmt.setString(10, notes.getText());
             
             theRealStmt.executeUpdate(); // execute the query with the updated string
             

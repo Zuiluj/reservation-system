@@ -17,7 +17,6 @@ import main.java.database.*;
  */
 public class EventReservationSystem extends Application {
     
-    DBConnect connectdb = new DBConnect(); // make instance of DBConnect to enable use
     
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -25,9 +24,9 @@ public class EventReservationSystem extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/main/resources/fxml/rootMenu.fxml")); // load the first fxml file
         
         primaryStage.setTitle("EventsByRandell"); // set title of the application
-        primaryStage.setScene(new Scene(root, 940, 550));  // change "root" to scene obj and set it as scene
+        primaryStage.setScene(new Scene(root, 1000, 550));  // change "root" to scene obj and set it as scene
         
-        connectdb.getConnection(); // initialize database
+        DBConnect.getConnection(); // initialize database
         primaryStage.show();    // show
     }
 

@@ -4,18 +4,19 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="454.0" prefWidth="812.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.DashboardController">
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="454.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.DashboardController">
    <children>
-      <TableView prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #8c244d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="table" prefHeight="454.0" prefWidth="892.0" style="-fx-background-color: #8c244d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn prefWidth="146.0" text="Name" />
-          <TableColumn prefWidth="97.0" text="Contact No." />
-            <TableColumn prefWidth="145.0" text="Venue" />
-            <TableColumn text="Sign-up Date" />
-            <TableColumn text="Event Date" />
-            <TableColumn prefWidth="70.0" text="Package" />
-            <TableColumn prefWidth="90.0" text="Price" />
-            <TableColumn prefWidth="103.0" text="Client's Budget" />
+            <TableColumn fx:id="col_eventType" prefWidth="75.0" text="Event Type" />
+          <TableColumn fx:id="col_name" prefWidth="146.0" text="Name" />
+          <TableColumn fx:id="col_contact" prefWidth="97.0" text="Contact No." />
+            <TableColumn fx:id="col_venue" prefWidth="145.0" text="Venue" />
+            <TableColumn fx:id="col_signUpDate" text="Sign-up Date" />
+            <TableColumn fx:id="col_eventDate" text="Event Date" />
+            <TableColumn fx:id="col_package" prefWidth="70.0" text="Package" />
+            <TableColumn fx:id="col_price" prefWidth="90.0" text="Price" />
+            <TableColumn fx:id="col_clientBudget" prefWidth="103.0" text="Client's Budget" />
         </columns>
       </TableView>
    </children>

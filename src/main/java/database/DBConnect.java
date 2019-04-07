@@ -8,9 +8,9 @@ import java.util.logging.Logger;
 public class DBConnect {
     
     private static final String JDBC_DRIVER = "jdbc:mysql://localhost:3306/eventSystem";
-    public Connection conn = null; // initialize connection var to enable use within functions
+    public static Connection conn = null; // initialize connection var to enable use within functions
     
-    public Connection getConnection() {
+    public static Connection getConnection() {
         String username = "root";
         String password = "";
         
