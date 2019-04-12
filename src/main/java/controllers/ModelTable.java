@@ -1,7 +1,7 @@
 package main.java.controllers;
 
 // this is the class for the tableView to hold
-// this acquires and gives the necessary data
+// this acquires and returns the necessary data
 public class ModelTable {
     
     String eventType, name, contact, venue, signUpDate, eventDate, packageInclusion, price, clientBudget;

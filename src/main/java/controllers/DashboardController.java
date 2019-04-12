@@ -22,11 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import main.java.database.DBConnect;
-/**
- * FXML Controller class
- *
- * @author Windows 7
- */
+
 public class DashboardController implements Initializable {
 
     @FXML
@@ -50,7 +46,7 @@ public class DashboardController implements Initializable {
     @FXML
     private TableColumn<ModelTable, String> col_clientBudget;
     
-    ObservableList<ModelTable> oblist = FXCollections.observableArrayList(); // create observable list 
+    ObservableList<ModelTable> oblist = FXCollections.observableArrayList(); //this is an array containing the items
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -58,8 +54,7 @@ public class DashboardController implements Initializable {
         Connection conn = DBConnect.getConnection();
         
         try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM activeevents"); // sql statement
-            
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM activeevents"); // aelect all items
             // this loop deals with displaying next items
             while(rs.next()) {
                 oblist.add(new ModelTable(
