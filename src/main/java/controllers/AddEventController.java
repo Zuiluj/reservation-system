@@ -14,16 +14,15 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import main.java.controllers.RootMenuController.*;
 import main.java.database.DBConnect;
 
 public class AddEventController implements Initializable {
-    
-    public DBConnect dbInstance = new DBConnect();
     
     public static String nameOfEvent; // must be static to change for the whole class not with just instance
     
@@ -48,7 +47,7 @@ public class AddEventController implements Initializable {
     @FXML
     private JFXTextArea notes; //notes of the event
     @FXML
-    private JFXButton addEvent; // button for adding the event to th database
+    private JFXButton addEvent; // button for adding the event to the database
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -64,35 +63,45 @@ public class AddEventController implements Initializable {
     public void storeEvent() {
         
         DBConnect.getConnection(); // makes sure db is connected
-        PreparedStatement theRealStmt = null; // initalize statement
+        PreparedStatement addStmt = null; // initalize statement
        
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Notice");
+        alert.setHeaderText("Event added! Good Luck!");
+        alert.setContentText("Click dashboard to see the events.");
+        
+        Alert duplicateWarning = new Alert(AlertType.WARNING);
+        duplicateWarning.setTitle("Error!");
+        duplicateWarning.setHeaderText("Name already exists!");
+        duplicateWarning.setContentText("Please pick another name");
         try {
             String query = "INSERT INTO eventsystem.activeevents(eventType, name, contact, venue, signUpDate, packageInclusion, price, clientBudget, eventDate, notes)"
                     + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
-            theRealStmt = DBConnect.conn.prepareStatement(query);
+            addStmt = DBConnect.conn.prepareStatement(query);
             
-            theRealStmt.setString(1, eventName.getText());
-            theRealStmt.setString(2, name.getText());
-            theRealStmt.setString(3, contact.getText());
-            theRealStmt.setString(4, venue.getText());
-            theRealStmt.setString(5, ((TextField)signUpDate.getEditor()).getText());
-            theRealStmt.setString(6, packageInclusion.getText());
-            theRealStmt.setString(7, price.getText());
-            theRealStmt.setString(8, clientBudget.getText());
-            theRealStmt.setString(9, ((TextField)eventDate.getEditor()).getText());
-            theRealStmt.setString(10, notes.getText());
+            addStmt.setString(1, eventName.getText());
+            addStmt.setString(2, name.getText());
+            addStmt.setString(3, contact.getText());
+            addStmt.setString(4, venue.getText());
+            addStmt.setString(5, ((TextField)signUpDate.getEditor()).getText());
+            addStmt.setString(6, packageInclusion.getText());
+            addStmt.setString(7, price.getText());
+            addStmt.setString(8, clientBudget.getText());
+            addStmt.setString(9, ((TextField)eventDate.getEditor()).getText());
+            addStmt.setString(10, notes.getText());
             
-            theRealStmt.executeUpdate(); // execute the query with the updated string
+            addStmt.executeUpdate(); // execute the query with the updated string
             
-        } catch (SQLException eee) {
+            alert.showAndWait();
+            
+        } catch (java.sql.SQLIntegrityConstraintViolationException duplicateKey) {
+            duplicateWarning.showAndWait(); // name col is unique key
+        } 
+        catch (SQLException eee) {
             eee.printStackTrace();
-        }
+        } 
         
-        
-        // go back to dashboard after adding event 
-        
-        //
         
     }
     

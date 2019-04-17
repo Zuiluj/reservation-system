@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="454.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.DashboardController">
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="454.0" prefWidth="1063.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.DashboardController">
    <children>
       <TableView fx:id="table" prefHeight="454.0" prefWidth="892.0" style="-fx-background-color: #8c244d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
@@ -17,6 +17,7 @@
             <TableColumn fx:id="col_package" prefWidth="70.0" text="Package" />
             <TableColumn fx:id="col_price" prefWidth="90.0" text="Price" />
             <TableColumn fx:id="col_clientBudget" prefWidth="103.0" text="Client's Budget" />
+            <TableColumn fx:id="col_notes" prefWidth="175.0" text="Notes" />
         </columns>
       </TableView>
    </children>

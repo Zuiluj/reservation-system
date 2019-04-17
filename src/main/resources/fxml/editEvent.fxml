@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="463.0" prefWidth="850.0" style="-fx-background-color: #edc7d8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.EditEventController">
+   <children>
+      <HBox layoutX="58.0" layoutY="66.0" prefHeight="188.0" prefWidth="850.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
+         <children>
+            <VBox prefHeight="334.0" prefWidth="503.0">
+               <children>
+                  <HBox prefHeight="45.0" prefWidth="426.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="126.0" text="Client's Name:">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="name" focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0" styleClass="text" stylesheets="@../css/style.css">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="45.0" prefWidth="385.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="126.0" text="Contact No:">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="contact" focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="45.0" prefWidth="385.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="126.0" text="Venue:">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="venue" focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="45.0" prefWidth="385.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="126.0" text="Sign-up Date:">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <DatePicker fx:id="signUpDate" prefHeight="25.0" prefWidth="270.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="45.0" prefWidth="502.0">
+               <children>
+                  <HBox prefHeight="45.0" prefWidth="385.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="126.0" text="Package:">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="packageInclusion" focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="45.0" prefWidth="385.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="126.0" text="Package Price:">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="price" focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="45.0" prefWidth="385.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="126.0" text="Client's Budget">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="clientBudget" focusColor="WHITE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="266.0">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="45.0" prefWidth="385.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="126.0" text="Event Date:">
+                           <font>
+                              <Font name="Forte" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <DatePicker fx:id="eventDate" prefHeight="25.0" prefWidth="270.0">
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="211.0" prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <JFXTextArea fx:id="notes" prefHeight="171.0" prefWidth="598.0" promptText="Add Notes" style="-fx-background-color: inherit;">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Forte" size="18.0" />
+               </font>
+            </JFXTextArea>
+            <JFXButton fx:id="addEvent" onAction="#saveEditedEvent" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #7a3d58; -fx-background-radius: 20px;" text="Edit Event" textFill="WHITE">
+               <font>
+                  <Font name="Forte" size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="150.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+      </HBox>
+      <JFXTextField fx:id="eventType" focusColor="WHITE" layoutX="292.0" layoutY="40.0" prefHeight="26.0" prefWidth="266.0">
+         <font>
+            <Font name="Forte" size="19.0" />
+         </font></JFXTextField>
+      <Label layoutX="380.0" layoutY="14.0" text="Event Type">
+         <font>
+            <Font name="Forte" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

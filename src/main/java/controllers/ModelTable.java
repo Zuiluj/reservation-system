@@ -4,9 +4,9 @@ package main.java.controllers;
 // this acquires and returns the necessary data
 public class ModelTable {
     
-    String eventType, name, contact, venue, signUpDate, eventDate, packageInclusion, price, clientBudget;
+    String eventType, name, contact, venue, signUpDate, eventDate, packageInclusion, price, clientBudget, notes;
 
-    public ModelTable(String eventType, String name, String contact, String venue, String signUpDate, String eventDate, String packageInclusion, String price, String clientBudget) {
+    public ModelTable(String eventType, String name, String contact, String venue, String signUpDate, String eventDate, String packageInclusion, String price, String clientBudget, String notes) {
         this.eventType = eventType;
         this.name = name;
         this.contact = contact;
@@ -16,8 +16,12 @@ public class ModelTable {
         this.packageInclusion = packageInclusion;
         this.price = price;
         this.clientBudget = clientBudget;
+        this.notes = notes;
     }
 
+
+    // setter and getter
+    
     public String getEventType() {
         return eventType;
     }
@@ -90,5 +94,11 @@ public class ModelTable {
         this.clientBudget = clientBudget;
     }
     
-    
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 }

@@ -21,6 +21,7 @@ public class EventReservationSystem extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         
+        
         Parent root = FXMLLoader.load(getClass().getResource("/main/resources/fxml/rootMenu.fxml")); // load the first fxml file
         
         primaryStage.setTitle("EventsByRandell"); // set title of the application
@@ -28,6 +29,7 @@ public class EventReservationSystem extends Application {
         
         DBConnect.getConnection(); // initialize database
         primaryStage.show();    // show
+        
     }
 
     

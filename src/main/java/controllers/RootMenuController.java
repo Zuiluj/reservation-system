@@ -20,22 +20,20 @@ import javafx.scene.layout.BorderPane;
 
 public class RootMenuController implements Initializable {
     
-    
     @FXML
     public BorderPane borderpane; // id of the borderpane
 
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("/main/resources/fxml/dashboard.fxml")); // initialize first launch by setting dashboard
-        } catch (IOException ex) {
-            Logger.getLogger(RootMenuController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException eee) {
+            Logger.getLogger(RootMenuController.class.getName()).log(Level.SEVERE, null, eee);
         }
-        
         borderpane.setCenter(root);
+        
+        
     }    
     
     @FXML
@@ -86,19 +84,7 @@ public class RootMenuController implements Initializable {
             System.out.println(eee);
         }
         
-        borderpane.setCenter(root);
+        borderpane.setCenter(root); 
     }
-    
-    public void nigGetBack() {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/main/resources/fxml/dashboard.fxml")); // initialize first launch by setting dashboard
-        } catch (IOException ex) {
-            Logger.getLogger(RootMenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        borderpane.setCenter(root);
-    }
-    
     
 }

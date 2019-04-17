@@ -19,7 +19,7 @@
                   <Font name="Forte" size="14.0" />
                </font>
             </JFXButton>
-            <Label layoutX="109.0" layoutY="15.0" prefHeight="49.0" prefWidth="218.0" text="EventsBRandell" textFill="WHITE">
+            <Label layoutX="109.0" layoutY="15.0" prefHeight="49.0" prefWidth="218.0" text="EventsByRandell" textFill="WHITE">
                <font>
                   <Font name="Forte" size="28.0" />
                </font>
