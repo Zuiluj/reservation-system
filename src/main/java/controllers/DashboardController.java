@@ -1,6 +1,7 @@
 // controller for Dashboard
 package main.java.controllers;
 
+import main.java.models.ModelTable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +21,6 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -30,13 +30,12 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.*;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import main.java.database.DBConnect;
-import main.java.controllers.RootMenuController;
 
 public class DashboardController implements Initializable {
+    
     
     @FXML
     private TableView<ModelTable> table;
@@ -63,7 +62,8 @@ public class DashboardController implements Initializable {
     
     ObservableList<ModelTable> oblist = FXCollections.observableArrayList(); //this is an array containing the items
     
-    public static Stage newStage = new Stage();
+    public static Stage viewStage = new Stage();
+    public static Stage editStage = new Stage();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -72,30 +72,33 @@ public class DashboardController implements Initializable {
         
         // ### add options when right-clicking a cell
         ContextMenu cm = new ContextMenu();
-        MenuItem item1 = new MenuItem("Edit");
-        MenuItem item2 = new MenuItem("Delete");
-        MenuItem item3 = new MenuItem("Mark as Done");
-        cm.getItems().add(item1);
-        cm.getItems().add(item2);
-        cm.getItems().add(item3);
+        MenuItem view = new MenuItem("View");
+        MenuItem edit = new MenuItem("Edit");
+        MenuItem delete = new MenuItem("Delete");
+        MenuItem mark = new MenuItem("Mark as Done");
+        cm.getItems().add(view);
+        cm.getItems().add(edit);
+        cm.getItems().add(delete);
+        cm.getItems().add(mark);
         
         
         // ### set menu actions
+        
+        view.setOnAction((ActionEvent e) -> {
+            this.view();
+        });
         // edit an event
-        item1.setOnAction((ActionEvent e) -> {
+        edit.setOnAction((ActionEvent e) -> {
             this.openEditMenu();
         });
         
         // delete an event
-        item2.setOnAction((ActionEvent e) -> {
+        delete.setOnAction((ActionEvent e) -> {
            this.deleteEvent();
-           
-            // TODO: REFRESH THE TABLE
-           this.initTable();
         });
         
         // mark event as done
-        item3.setOnAction((ActionEvent e) -> {
+        mark.setOnAction((ActionEvent e) -> {
             this.markAsDone();
         });
         
@@ -103,7 +106,7 @@ public class DashboardController implements Initializable {
         
         // ### add the context menu feature
         table.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent t) -> {
-            if(t.getButton() == MouseButton.SECONDARY && !table.getSelectionModel().isEmpty()) {
+            if(t.getButton() == MouseButton.SECONDARY && !table.getSelectionModel().isEmpty()) { // only trigger right click when there is a highlighted row
                 cm.show(table, t.getScreenX(), t.getScreenY());
             }
         });
@@ -112,16 +115,24 @@ public class DashboardController implements Initializable {
         
         }        
     
+    public String returnKey() {
+        return this.table.getSelectionModel().getSelectedItem().getName();
+    }
+    
+    public DashboardController returnInstance() {
+        return this;
+    }
     
     public void initTable() {
-        
+
         Connection conn = DBConnect.getConnection();
         
         try {
             ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM activeevents"); // aelect all items
-            // this loop deals with displaying next items
+            // this loop deals with displaying next items 
+            this.oblist.removeAll(oblist);
             while(rs.next()) {
-                oblist.add(new ModelTable(
+                this.oblist.add(new ModelTable(
                         rs.getString("eventType"),
                         rs.getString("name"),
                         rs.getString("contact"),
@@ -140,50 +151,86 @@ public class DashboardController implements Initializable {
         }
         
         // ### set cell elememnts
-        col_eventType.setCellValueFactory(new PropertyValueFactory<>("eventType"));
-        col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        col_contact.setCellValueFactory(new PropertyValueFactory<>("contact"));
-        col_venue.setCellValueFactory(new PropertyValueFactory<>("venue"));
-        col_signUpDate.setCellValueFactory(new PropertyValueFactory<>("signUpDate"));
-        col_eventDate.setCellValueFactory(new PropertyValueFactory<>("eventDate"));
-        col_package.setCellValueFactory(new PropertyValueFactory<>("packageInclusion"));
-        col_price.setCellValueFactory(new PropertyValueFactory<>("price"));
-        col_clientBudget.setCellValueFactory(new PropertyValueFactory<>("clientBudget"));
-        col_notes.setCellValueFactory(new PropertyValueFactory<>("notes"));
+        this.col_eventType.setCellValueFactory(new PropertyValueFactory<>("eventType"));
+        this.col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        this.col_contact.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        this.col_venue.setCellValueFactory(new PropertyValueFactory<>("venue"));
+        this.col_signUpDate.setCellValueFactory(new PropertyValueFactory<>("signUpDate"));
+        this.col_eventDate.setCellValueFactory(new PropertyValueFactory<>("eventDate"));
+        this.col_package.setCellValueFactory(new PropertyValueFactory<>("packageInclusion"));
+        this.col_price.setCellValueFactory(new PropertyValueFactory<>("price"));
+        this.col_clientBudget.setCellValueFactory(new PropertyValueFactory<>("clientBudget"));
+        this.col_notes.setCellValueFactory(new PropertyValueFactory<>("notes"));
         
         table.setItems(oblist);
         
         // ###
     }
     
+    // method to view the event
+    public void view() {
+        
+        // TODO: open the event in new window
+        Parent root = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/fxml/viewEvent.fxml"));
+        try {
+            root = loader.load();
+        } catch (IOException eee) {
+             Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, eee);
+        }
+        main.java.controllers.ViewEventController controller = loader.getController(); // assign controller to var to enable passing values
+        
+        controller.setFields(
+                this.table.getSelectionModel().getSelectedItem().getEventType(), 
+                this.table.getSelectionModel().getSelectedItem().getName(), 
+                this.table.getSelectionModel().getSelectedItem().getContact(), 
+                this.table.getSelectionModel().getSelectedItem().getVenue(), 
+                this.table.getSelectionModel().getSelectedItem().getSignUpDate(), 
+                this.table.getSelectionModel().getSelectedItem().getEventDate(), 
+                this.table.getSelectionModel().getSelectedItem().getPackageInclusion(), 
+                this.table.getSelectionModel().getSelectedItem().getPrice(), 
+                this.table.getSelectionModel().getSelectedItem().getClientBudget(), 
+                this.table.getSelectionModel().getSelectedItem().getNotes()
+        );
+        
+        Scene newScene = new Scene(root);
+        viewStage.setScene(newScene);
+        viewStage.setTitle("View event");
+        viewStage.show();
+        
+        
+        
+    }
     // method to edit menu
     public void openEditMenu() {
+        
         Parent root = null;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/fxml/editEvent.fxml"));
         try {
             root = loader.load();
-        } catch (IOException ex) {
-            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException eee) {
+            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, eee);
         }
         main.java.controllers.EditEventController controller = loader.getController();
         
         // pass the existing values of the selected row to EditEventController
         controller.setFields(
-                table.getSelectionModel().getSelectedItem().getEventType(), 
-                table.getSelectionModel().getSelectedItem().getName(), 
-                table.getSelectionModel().getSelectedItem().getContact(), 
-                table.getSelectionModel().getSelectedItem().getVenue(), 
-                table.getSelectionModel().getSelectedItem().getSignUpDate(), 
-                table.getSelectionModel().getSelectedItem().getEventDate(), 
-                table.getSelectionModel().getSelectedItem().getPackageInclusion(), 
-                table.getSelectionModel().getSelectedItem().getPrice(), 
-                table.getSelectionModel().getSelectedItem().getClientBudget(), 
-                table.getSelectionModel().getSelectedItem().getNotes());
+                this.table.getSelectionModel().getSelectedItem().getEventType(), 
+                this.table.getSelectionModel().getSelectedItem().getName(), 
+                this.table.getSelectionModel().getSelectedItem().getContact(), 
+                this.table.getSelectionModel().getSelectedItem().getVenue(), 
+                this.table.getSelectionModel().getSelectedItem().getSignUpDate(), 
+                this.table.getSelectionModel().getSelectedItem().getEventDate(), 
+                this.table.getSelectionModel().getSelectedItem().getPackageInclusion(), 
+                this.table.getSelectionModel().getSelectedItem().getPrice(), 
+                this.table.getSelectionModel().getSelectedItem().getClientBudget(), 
+                this.table.getSelectionModel().getSelectedItem().getNotes()
+        );
         
         Scene newScene = new Scene(root);
-        newStage.setScene(newScene);
-        newStage.setTitle("Edit Event");
-        newStage.show();
+        editStage.setScene(newScene);
+        editStage.setTitle("Edit Event");
+        editStage.show();
         
     }
     
@@ -208,11 +255,12 @@ public class DashboardController implements Initializable {
                 deleteStmt.setString(1, table.getSelectionModel().getSelectedItem().getName());
                 deleteStmt.execute();
                 System.out.println("Event deleted...");
+                this.initTable();
             } catch (SQLException ex) {
                 Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-            
+        this.initTable();
     }
     
     // method to mark an event done (i.e. transfer the data to other table and delete it in the current table)

@@ -71,7 +71,7 @@ public class RootMenuController implements Initializable {
 
     @FXML
     private void history(ActionEvent event) {
-        changeScene("historyFXML");
+        changeScene("history");
     }
   
     

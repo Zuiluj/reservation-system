@@ -17,25 +17,18 @@ import javafx.scene.control.DatePicker;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-import java.util.Date;
-import javafx.util.converter.DateTimeStringConverter;
 
-
-import main.java.database.DBConnect;
 import main.java.controllers.DashboardController;
+import main.java.database.DBConnect;
         
 public class EditEventController implements Initializable {
 
     @FXML
-    public JFXTextField eventType;
+    private JFXTextField eventType;
     @FXML
     private JFXTextField name;
     @FXML
@@ -56,7 +49,8 @@ public class EditEventController implements Initializable {
     private JFXTextArea notes;
     @FXML
     private JFXButton addEvent;
-    
+   
+    private String key; // placeholder for the key of query statement; i.e. name column
     
     private final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/d/yyyy");
     
@@ -66,20 +60,23 @@ public class EditEventController implements Initializable {
     }    
     
     public void setFields(String eventType, String name, String contact, String venue, String signUpDate, String eventDate, String packageInclusion, String price, String clientBudget, String notes) {
-        
+        // turn string to localDate object
         LocalDate signUp = LocalDate.parse(signUpDate, dateFormat);
         LocalDate dateOfEvent = LocalDate.parse(eventDate, dateFormat);
-        this.signUpDate.setValue(signUp);
-        this.eventDate.setValue(dateOfEvent);
+        //
         
         this.eventType.setText(eventType);
         this.name.setText(name);
         this.contact.setText(contact);
         this.venue.setText(venue);
+        this.signUpDate.setValue(signUp);
+        this.eventDate.setValue(dateOfEvent);
         this.packageInclusion.setText(packageInclusion);
         this.price.setText(price);
         this.clientBudget.setText(clientBudget);
         this.notes.setText(notes);
+        
+        this.key = name; // place the name into the key for sql query use
     }
     
     @FXML
@@ -89,7 +86,7 @@ public class EditEventController implements Initializable {
         
         try {
             String query = "UPDATE activeevents "
-                    + "SET name=?, eventType=?, contact=?, venue=?, signUpDate=?, packageInclusion=?, price=?, clientBudget=?, eventDate=?, notes=?"
+                    + "SET eventType=?, name=?, contact=?, venue=?, signUpDate=?, packageInclusion=?, price=?, clientBudget=?, eventDate=?, notes=?"
                     + "WHERE name=?";
         
             theEditStmt = DBConnect.conn.prepareStatement(query);
@@ -106,16 +103,15 @@ public class EditEventController implements Initializable {
             theEditStmt.setString(9, ((TextField)eventDate.getEditor()).getText());
             theEditStmt.setString(10, notes.getText());
             
-            theEditStmt.setString(11, name.getText()); // name column of the event
+            theEditStmt.setString(11, key); // name column of the event
             
             theEditStmt.executeUpdate(); 
-            DashboardController.newStage.close(); // closes the window
+            DashboardController.editStage.close(); // closes the window
+            
         }
         catch (SQLException eee) {
             eee.printStackTrace();
         }
-        
-        
     }
     
 }

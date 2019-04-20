@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="492.0" prefWidth="817.0" style="-fx-background-color: #DA7694;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.HistoryController">
+   <children>
+      <AnchorPane layoutX="80.0" layoutY="25.0" prefHeight="460.0" prefWidth="733.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="66.0" prefWidth="999.0" style="-fx-background-color: #761F4B;" text="History" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Forte" size="20.0" />
+               </font>
+            </Label>
+            <PieChart fx:id="chart" layoutX="34.0" layoutY="86.0" prefHeight="371.0" prefWidth="327.0" AnchorPane.leftAnchor="34.0" />
+            <TableView fx:id="table" layoutX="402.0" layoutY="86.0" prefHeight="371.0" prefWidth="391.0" style="-fx-background-color: #6D3B4A;" AnchorPane.rightAnchor="24.0">
+              <columns>
+                <TableColumn prefWidth="140.0" text="Event Type" />
+                <TableColumn prefWidth="105.0" text="Name" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

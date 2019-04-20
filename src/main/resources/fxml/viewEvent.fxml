@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="594.0" prefWidth="823.0" style="-fx-background-color: #edc7d8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.ViewEventController">
+   <children>
+      <AnchorPane layoutX="85.0" layoutY="73.0" prefHeight="470.0" prefWidth="823.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="54.0" prefWidth="823.0" AnchorPane.bottomAnchor="540.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="836.0" style="-fx-background-color: #761F4B;" text="Event Details" textFill="WHITE">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox layoutX="11.0" layoutY="55.0" prefHeight="539.0" prefWidth="191.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="632.0" AnchorPane.topAnchor="55.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Event type:">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Client's Name:">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Contact No.:">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Venue:">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Sign Up Date:">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Event Date:">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Package Inclusion:">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Package Price:">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Client's Budget:">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Notes">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="20.0" top="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="223.0" layoutY="53.0" prefHeight="486.0" prefWidth="600.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0">
+               <children>
+                  <Label fx:id="eventType" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Event Type">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="name" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Name">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="contact" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Contact No.">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="venue" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Venue">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="signUpDate" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Sign-up Date">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="eventDate" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Event Date">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="packageInclusion" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Package Inclusion">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="packagePrice" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Package price">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="clientBudget" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Client's budget">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <JFXTextArea fx:id="notes" editable="false" focusColor="WHITE" prefHeight="78.0" prefWidth="583.0" text="notes">
+                     <font>
+                        <Font name="Forte" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </JFXTextArea>
+               </children>
+            </VBox>
+            <JFXButton alignment="CENTER" layoutX="673.0" layoutY="539.0" onAction="#printTheDoc" prefHeight="43.0" prefWidth="128.0" style="-fx-background-radius: 30; -fx-background-color: #761F4B; -fx-border-color: #EC3E96; -fx-border-radius: 17; -fx-border-width: 3;" text="Print" textFill="WHITE">
+               <font>
+                  <Font name="Forte" size="19.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

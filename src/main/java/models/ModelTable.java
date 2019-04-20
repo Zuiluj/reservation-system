@@ -1,4 +1,4 @@
-package main.java.controllers;
+package main.java.models;
 
 // this is the class for the tableView to hold
 // this acquires and returns the necessary data

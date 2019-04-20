@@ -22,7 +22,7 @@
          <children>
             <VBox prefHeight="334.0" prefWidth="503.0">
                <children>
-                  <HBox prefHeight="45.0" prefWidth="426.0">
+                  <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="426.0">
                      <children>
                         <Label alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="126.0" text="Client's Name:">
                            <font>
@@ -95,7 +95,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="45.0" prefWidth="502.0">
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="502.0">
                <children>
                   <HBox prefHeight="45.0" prefWidth="385.0">
                      <children>
