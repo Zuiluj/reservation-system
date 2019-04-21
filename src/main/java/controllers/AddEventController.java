@@ -79,7 +79,7 @@ public class AddEventController implements Initializable {
         Alert noDate = new Alert(AlertType.WARNING);
         noDate.setTitle("Error");
         noDate.setHeaderText("No date with either Sign up or Event date");
-        noDate.setContentText("Please input a date.");
+        noDate.setContentText("Please input a date. If date is still tentative, just type not yet decided and edit it later.");
         // ###
         
         // secure first if data fields have date
