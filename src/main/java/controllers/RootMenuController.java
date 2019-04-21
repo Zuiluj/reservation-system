@@ -76,7 +76,7 @@ public class RootMenuController implements Initializable {
   
     
     // method for changing scenes
-    public void changeScene (String sceneName) {
+    private void changeScene (String sceneName) {
         Parent root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("/main/resources/fxml/" + sceneName + ".fxml"));

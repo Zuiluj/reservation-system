@@ -115,15 +115,7 @@ public class DashboardController implements Initializable {
         
         }        
     
-    public String returnKey() {
-        return this.table.getSelectionModel().getSelectedItem().getName();
-    }
-    
-    public DashboardController returnInstance() {
-        return this;
-    }
-    
-    public void initTable() {
+    private void initTable() {
 
         Connection conn = DBConnect.getConnection();
         
@@ -146,8 +138,8 @@ public class DashboardController implements Initializable {
                 ));
             }
             
-        } catch (SQLException ex) {
-            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException eee) {
+            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, eee);
         }
         
         // ### set cell elememnts
@@ -162,13 +154,13 @@ public class DashboardController implements Initializable {
         this.col_clientBudget.setCellValueFactory(new PropertyValueFactory<>("clientBudget"));
         this.col_notes.setCellValueFactory(new PropertyValueFactory<>("notes"));
         
-        table.setItems(oblist);
+        this.table.setItems(oblist);
         
         // ###
     }
     
     // method to view the event
-    public void view() {
+    private void view() {
         
         // TODO: open the event in new window
         Parent root = null;
@@ -202,7 +194,7 @@ public class DashboardController implements Initializable {
         
     }
     // method to edit menu
-    public void openEditMenu() {
+    private void openEditMenu() {
         
         Parent root = null;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/fxml/editEvent.fxml"));
@@ -235,7 +227,7 @@ public class DashboardController implements Initializable {
     }
     
     // method to delete event
-    public void deleteEvent() {
+    private void deleteEvent() {
          
         // ### initalization of confirmation dialog
         Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -264,7 +256,7 @@ public class DashboardController implements Initializable {
     }
     
     // method to mark an event done (i.e. transfer the data to other table and delete it in the current table)
-    public void markAsDone() {
+    private void markAsDone() {
         
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirm");
@@ -302,12 +294,12 @@ public class DashboardController implements Initializable {
                 
                 deleteStmt.setString(1, table.getSelectionModel().getSelectedItem().getName());
                 deleteStmt.execute();
-                table.refresh();
             
             } catch (SQLException eee) {
                 Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, eee);
             }
         }
+        this.initTable(); // refresh items
         
     }
     

@@ -65,6 +65,7 @@ public class AddEventController implements Initializable {
         DBConnect.getConnection(); // makes sure db is connected
         PreparedStatement addStmt = null; // initalize statement
        
+        // ### initialize warnings
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Notice");
         alert.setHeaderText("Event added! Good Luck!");
@@ -74,35 +75,51 @@ public class AddEventController implements Initializable {
         duplicateWarning.setTitle("Error!");
         duplicateWarning.setHeaderText("Name already exists!");
         duplicateWarning.setContentText("Please pick another name");
-        try {
-            String query = "INSERT INTO eventsystem.activeevents(eventType, name, contact, venue, signUpDate, packageInclusion, price, clientBudget, eventDate, notes)"
-                    + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            
-            addStmt = DBConnect.conn.prepareStatement(query);
-            
-            addStmt.setString(1, eventName.getText());
-            addStmt.setString(2, name.getText());
-            addStmt.setString(3, contact.getText());
-            addStmt.setString(4, venue.getText());
-            addStmt.setString(5, ((TextField)signUpDate.getEditor()).getText());
-            addStmt.setString(6, packageInclusion.getText());
-            addStmt.setString(7, price.getText());
-            addStmt.setString(8, clientBudget.getText());
-            addStmt.setString(9, ((TextField)eventDate.getEditor()).getText());
-            addStmt.setString(10, notes.getText());
-            
-            addStmt.executeUpdate(); // execute the query with the updated string
-            
-            alert.showAndWait();
-            
-        } catch (java.sql.SQLIntegrityConstraintViolationException duplicateKey) {
-            duplicateWarning.showAndWait(); // name col is unique key
-        } 
-        catch (SQLException eee) {
-            eee.printStackTrace();
-        } 
         
+        Alert noDate = new Alert(AlertType.WARNING);
+        noDate.setTitle("Error");
+        noDate.setHeaderText("No date with either Sign up or Event date");
+        noDate.setContentText("Please input a date.");
+        // ###
         
+        // secure first if data fields have date
+        if( ((TextField)signUpDate.getEditor()).getText().equals("") || ((TextField)eventDate.getEditor()).getText().equals("")) {
+            System.out.println("no date");
+            noDate.showAndWait();
+        } 
+        // if there are data within date fields proceed to adding the event
+        else {
+        
+            try {
+                String query = "INSERT INTO eventsystem.activeevents(eventType, name, contact, venue, signUpDate, packageInclusion, price, clientBudget, eventDate, notes)"
+                        + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            
+                addStmt = DBConnect.conn.prepareStatement(query);
+            
+                addStmt.setString(1, eventName.getText());
+                addStmt.setString(2, name.getText());
+                addStmt.setString(3, contact.getText());
+                addStmt.setString(4, venue.getText());
+                addStmt.setString(5, ((TextField)signUpDate.getEditor()).getText());
+                addStmt.setString(6, packageInclusion.getText());
+                addStmt.setString(7, price.getText());
+                addStmt.setString(8, clientBudget.getText());
+                addStmt.setString(9, ((TextField)eventDate.getEditor()).getText());
+                addStmt.setString(10, notes.getText());
+            
+                addStmt.executeUpdate(); // execute the query with the updated string
+            
+                alert.showAndWait();
+            
+            } 
+            catch (java.sql.SQLIntegrityConstraintViolationException duplicateKey) {
+                duplicateWarning.showAndWait(); // name col is unique key
+            }
+            catch (SQLException eee) {
+                eee.printStackTrace();
+            } 
+        
+        }
     }
     
     
