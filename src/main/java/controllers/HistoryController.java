@@ -219,7 +219,7 @@ public class HistoryController implements Initializable {
             try {
                 PreparedStatement deleteStmt = null;
                     
-                String query = "DELETE FROM activeevents WHERE name=?";
+                String query = "DELETE FROM accomplishedevents WHERE name=?";
                 deleteStmt = DBConnect.conn.prepareStatement(query);
                 
                 deleteStmt.setString(1, table.getSelectionModel().getSelectedItem().getName());

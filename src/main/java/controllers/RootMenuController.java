@@ -61,7 +61,7 @@ public class RootMenuController implements Initializable {
 
     @FXML
     private void calculator(ActionEvent event) {
-        changeScene("profitCalcFXML");
+        changeScene("profitCalc");
     }
 
     @FXML

@@ -12,7 +12,8 @@ public class DBConnect {
     
     public static Connection getConnection() {
         String username = "root";
-        String password = "";
+        String password = "root";
+        //String password = ""; // this is for the other database
         
         
         try {
