@@ -6,7 +6,7 @@
 
 <AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="454.0" prefWidth="1063.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.controllers.DashboardController">
    <children>
-      <TableView fx:id="table" prefHeight="454.0" prefWidth="892.0" style="-fx-background-color: #8c244d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="table" prefHeight="454.0" prefWidth="892.0" style="-fx-background-color: #8c244d; -fx-fixed-cell-size: 40px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
             <TableColumn fx:id="col_eventType" prefWidth="75.0" text="Event Type" />
           <TableColumn fx:id="col_name" prefWidth="146.0" text="Name" />

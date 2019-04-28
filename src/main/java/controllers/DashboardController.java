@@ -1,4 +1,3 @@
-// controller for Dashboard
 package main.java.controllers;
 
 import main.java.models.ModelTable;
@@ -69,7 +68,7 @@ public class DashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         this.initTable();
-        
+        this.initNotice();
         // ### add options when right-clicking a cell
         ContextMenu cm = new ContextMenu();
         MenuItem view = new MenuItem("View");
@@ -115,7 +114,33 @@ public class DashboardController implements Initializable {
         
         }        
     
+    private void initNotice() {
+        int eventCount = 0;
+        
+        Connection conn = DBConnect.getConnection();
+        ResultSet rs;
+        
+        try {
+            rs = conn.createStatement().executeQuery("SELECT * FROM activeevents");
+            while(rs.next()){
+                eventCount += 1;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(eventCount > 0) {
+            Alert notice = new Alert(AlertType.INFORMATION);
+            notice.setTitle("Notice");
+            notice.setHeaderText("Upcoming events");
+            notice.setContentText("You have " + eventCount + " incoming events. Good luck!");
+            notice.show();
+        }
+    }
+    
     private void initTable() {
+        
 
         Connection conn = DBConnect.getConnection();
         
@@ -156,13 +181,14 @@ public class DashboardController implements Initializable {
         
         this.table.setItems(oblist);
         
+        
         // ###
     }
     
     // method to view the event
     private void view() {
         
-        // TODO: open the event in new window
+        // open the event in new window
         Parent root = null;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/fxml/viewEvent.fxml"));
         try {

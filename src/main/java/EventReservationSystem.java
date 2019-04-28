@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import main.java.database.*;
 /**
@@ -24,6 +25,7 @@ public class EventReservationSystem extends Application {
         
         Parent root = FXMLLoader.load(getClass().getResource("/main/resources/fxml/rootMenu.fxml")); // load the first fxml file
         
+        primaryStage.getIcons().add(new Image("/main/resources/icon.png"));
         primaryStage.setTitle("EventsByRandell"); // set title of the application
         primaryStage.setScene(new Scene(root, 1000, 550));  // change "root" to scene obj and set it as scene
         

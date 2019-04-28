@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package main.java.controllers;
 
 import com.jfoenix.controls.JFXButton;
@@ -19,6 +14,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 
 
@@ -56,7 +53,6 @@ public class EditEventController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
     }    
     
     public void setFields(String eventType, String name, String contact, String venue, String signUpDate, String eventDate, String packageInclusion, String price, String clientBudget, String notes) {
@@ -81,7 +77,14 @@ public class EditEventController implements Initializable {
     
     @FXML
     private void saveEditedEvent(ActionEvent event) {
+        // Alert initialization
+        Alert notice = new Alert(AlertType.INFORMATION);
+        notice.setTitle("Notice");
+        notice.setHeaderText("Edited succesfully");
+        notice.setContentText("Click the dashboard again to refresh.");
         DBConnect.getConnection();
+        //
+        
         PreparedStatement theEditStmt = null;
         
         try {
@@ -106,6 +109,8 @@ public class EditEventController implements Initializable {
             theEditStmt.setString(11, key); // name column of the event
             
             theEditStmt.executeUpdate(); 
+            
+            notice.showAndWait();
             DashboardController.editStage.close(); // closes the window
             
         }

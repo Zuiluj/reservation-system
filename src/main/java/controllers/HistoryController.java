@@ -150,6 +150,7 @@ public class HistoryController implements Initializable {
             new PieChart.Data("Others", this.othersCount)
         );
         
+        
         // display the chart
         chart.setData(pieChartData);
         chart.setLabelsVisible(true);

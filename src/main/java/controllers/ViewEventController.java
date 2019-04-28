@@ -8,8 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-import main.java.controllers.DashboardController;
-
 public class ViewEventController implements Initializable {
 
     @FXML
@@ -56,6 +54,7 @@ public class ViewEventController implements Initializable {
     @FXML
     private void printTheDoc(ActionEvent e) {
         // TODO: print the doc
+        
     }
     
 }

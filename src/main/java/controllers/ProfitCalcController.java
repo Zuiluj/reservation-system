@@ -5,7 +5,6 @@
  */
 package main.java.controllers;
 
-import static com.sun.media.jfxmediaimpl.MediaUtils.warning;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -35,12 +34,12 @@ public class ProfitCalcController implements Initializable {
     private TextField tf2;
 
     @FXML
-    private TextField tf4;// budget
+    private TextField tf4; // budget
 
     @FXML
     private Label display;
     
-       @FXML
+    @FXML
     private Label display1;
 
     @FXML
@@ -71,7 +70,7 @@ public class ProfitCalcController implements Initializable {
     private Label display11112;
 
     
-       @FXML
+    @FXML
     private TextField tf11;//tf4 for expenses
 
     @FXML
@@ -93,9 +92,7 @@ public class ProfitCalcController implements Initializable {
     private TextField tf121111;//NOE of tf 111
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-       
-        
+    public void initialize(URL url, ResourceBundle rb) {    
         tf1.setText("0.00");
         tf2.setText("0.00");
         tf3.setText("0.00");
@@ -109,8 +106,8 @@ public class ProfitCalcController implements Initializable {
         // ### initialize warning 
         Alert warning = new Alert(AlertType.WARNING);
         warning.setTitle("Warning");
-        warning.setHeaderText("Empty value");
-        warning.setContentText("There is a field that has an empty value. If it is unneeded, initialize it to zero.");
+        warning.setHeaderText("Invalid value");
+        warning.setContentText("There is a field that has an empty or invalid value. If it is unneeded, initialize it to zero.");
         // ###
         
         

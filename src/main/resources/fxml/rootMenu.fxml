@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -19,12 +20,17 @@
                   <Font name="Forte" size="14.0" />
                </font>
             </JFXButton>
-            <Label layoutX="109.0" layoutY="15.0" prefHeight="49.0" prefWidth="218.0" text="EventsByRandell" textFill="WHITE">
+            <Label layoutX="135.0" layoutY="26.0" prefHeight="49.0" prefWidth="218.0" text="EventsByRandell" textFill="WHITE">
                <font>
                   <Font name="Forte" size="28.0" />
                </font>
             </Label>
             <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="89.0" fitWidth="166.0" layoutX="-25.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="-25.0" AnchorPane.topAnchor="-1.0">
+               <image>
+                  <Image url="@../logo.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
    </top>
    <left>
