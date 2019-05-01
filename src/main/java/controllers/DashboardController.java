@@ -248,6 +248,7 @@ public class DashboardController implements Initializable {
         Scene newScene = new Scene(root);
         editStage.setScene(newScene);
         editStage.setTitle("Edit Event");
+        editStage.setResizable(false);
         editStage.show();
         
     }

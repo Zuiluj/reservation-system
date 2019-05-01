@@ -15,7 +15,7 @@
    <children>
       <HBox prefHeight="55.0" prefWidth="850.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="59.0" prefWidth="850.0" style="-fx-background-color: #6D3B4A;" text="Edit Event" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="59.0" prefWidth="850.0" style="-fx-background-color: #6D3B4A;" text="Edit Event" textAlignment="CENTER" textFill="WHITE" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Forte" size="31.0" />
                </font>
